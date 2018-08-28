@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y vim mesa-utils tightvncserver xfce4 wge
 
 RUN wget -O- http://neuro.debian.net/lists/xenial.us-tn.full | tee /etc/apt/sources.list.d/neurodebian.sources.list
 #RUN apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9
-RUN apt-get update && apt-get install -y --allow-unauthenticated fsleyes 
+RUN apt-get update && apt-get install -y --allow-unauthenticated fsleyes wmctrl
 
 #https://sourceforge.net/projects/virtualgl/files/2.6/virtualgl_2.6_amd64.deb/download
 #release note > https://github.com/VirtualGL/virtualgl/blob/master/ChangeLog.md

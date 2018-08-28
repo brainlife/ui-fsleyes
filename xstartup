@@ -5,15 +5,18 @@ vglclient &
 
 XFCE_PANEL_MIGRATE_DEFAULT=true startxfce4 &
 
+#not sure where this needs to be.. but maybe doesn't matter? without this, fsleyes popups
+export FSLDIR=/
+
 #fslview can only handle 1 image?
 vglrun fsleyes `find /input -name *.nii.gz` &
+pid=$!
 
-#pid=$!
 #find the window id
-#sleep 2
-#id=`wmctrl -pl | grep " $pid " | cut -f 1 -d " "`
-#echo $id > /id.txt
-#wmctrl -i -r $id -b add,fullscreen
+sleep 2
+id=`wmctrl -pl | grep " $pid " | cut -f 1 -d " "`
+echo $id > /id.txt
+wmctrl -i -r $id -b add,fullscreen
 
 #run it for an hour
 sleep 3600
