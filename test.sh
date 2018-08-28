@@ -10,9 +10,10 @@ hostport=$(docker port $id | cut -d " " -f 3)
 echo "container $id using $hostport"
 
 WEBSOCK_PORT=0.0.0.0:11000
+hostname=$(hostname)
 
 echo "------------------------------------------------------------------------"
-echo "http://dev1.soichi.us:11000/vnc_lite.html?password=$password"
+echo "http://$hostname:11000/vnc_lite.html?password=$password"
 echo "------------------------------------------------------------------------"
 
 /usr/local/noVNC/utils/launch.sh --listen $WEBSOCK_PORT --vnc $hostport

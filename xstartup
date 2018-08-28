@@ -1,11 +1,14 @@
 #!/bin/bash
 
+#should I do this on startvnc?
+vglclient &
+
 XFCE_PANEL_MIGRATE_DEFAULT=true startxfce4 &
 
 #fslview can only handle 1 image?
-/usr/bin/fsleyes `find /input -name *.nii.gz` &
-pid=$!
+vglrun fsleyes `find /input -name *.nii.gz` &
 
+#pid=$!
 #find the window id
 #sleep 2
 #id=`wmctrl -pl | grep " $pid " | cut -f 1 -d " "`
