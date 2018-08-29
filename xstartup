@@ -13,10 +13,10 @@ vglrun fsleyes `find /input -name *.nii.gz` &
 pid=$!
 
 #find the window id
-sleep 2
-id=`wmctrl -pl | grep " $pid " | cut -f 1 -d " "`
-echo $id > /id.txt
-wmctrl -i -r $id -b add,fullscreen
+#sleep 2
+#id=`wmctrl -pl | grep " $pid " | cut -f 1 -d " "`
+##echo $id > /id.txt
+#wmctrl -i -r $id -b add,fullscreen
 
 #run it for an hour
 sleep 3600
