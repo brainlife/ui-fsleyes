@@ -4,6 +4,8 @@ MAINTAINER Soichi Hayashis <hayashis@iu.edu>
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	vim tightvncserver xfce4 python-pip wmctrl mesa-utils tightvncserver xfce4 wget freeglut3 libsdl1.2debian
 
+RUN apt-get remove -y xfce4-panel
+
 EXPOSE 5900
 
 RUN pip install --only-binary wxpython -f https://extras.wxpython.org/wxPython4/extras/linux/gtk2/ubuntu-16.04/ wxpython
@@ -22,7 +24,6 @@ ADD xstartup /root/.vnc/xstartup
 ENV USER=root X11VNC_PASSWORD=override
 
 #RUN apt-get install -y xfce4-goodies
-RUN apt-get remove -y xfce4-panel
 
 CMD ["/startvnc.sh"]
 
